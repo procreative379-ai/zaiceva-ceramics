@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "u": "images/ch_21_20_42.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "author": {
+    "u": "images/zhenya.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "dir-interior": {
+    "u": "images/ch_21_25_27.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "dir-kitchen": {
+    "u": "images/kitchen_main.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "dir-broshi": {
+    "u": "images/ch_19_54_25.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "dir-other": {
+    "u": "images/ch_21_01_48.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "dir-paint": {
+    "u": "images/ch_21_29_37.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "in1": {
+    "u": "images/ch_21_08_50.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "in2": {
+    "u": "images/ch_17_52_08.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "in3": {
+    "u": "images/ch_20_53_04.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "in4": {
+    "u": "images/ch_20_55_09.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "ku1": {
+    "u": "images/ch_20_16_45.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "ku2": {
+    "u": "images/kitchen_plate.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "ku3": {
+    "u": "images/ch_17_49_45.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "ku4": {
+    "u": "images/kitchen_bowl.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "br1": {
+    "u": "images/ch_19_44_02.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "br2": {
+    "u": "images/ch_19_54_25.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "br3": {
+    "u": "images/ch_17_53_21.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "pu1": {
+    "u": "images/ch_20_02_47.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "pu2": {
+    "u": "images/ch_17_52_08.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  },
+  "pu3": {
+    "u": "images/ch_20_02_47.jpg",
+    "s": 1,
+    "x": 0,
+    "y": 0
+  }
+}
