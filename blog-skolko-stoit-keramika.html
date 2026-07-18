@@ -72,6 +72,22 @@
   .post-link h2{ font-family:var(--serif); font-weight:500; font-size:28px; line-height:1.2; margin-bottom:10px; transition:color .2s; }
   .post-link p{ color:var(--muted); margin-bottom:8px; }
   .post-link .meta{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; padding:0; border:none; margin:0 0 8px; }
+
+  /* burger + mobile menu */
+  .burger{ position:relative; width:42px; height:42px; padding:0; display:none; flex-direction:column; align-items:center; justify-content:center; z-index:70; background:transparent; border:none; cursor:pointer; }
+  .burger span{ display:block; width:24px; height:2px; background:var(--ink); position:absolute; left:9px; transition:transform .25s, opacity .2s, top .25s; }
+  .burger span:nth-child(1){ top:14px; }
+  .burger span:nth-child(2){ top:20px; }
+  .burger span:nth-child(3){ top:26px; }
+  .burger.open span:nth-child(1){ top:20px; transform:rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ top:20px; transform:rotate(-45deg); }
+  .mobile-menu{ position:fixed; inset:0; background:#FAFAF7; z-index:65; padding:88px 24px 40px; opacity:0; pointer-events:none; transition:opacity .25s; overflow-y:auto; }
+  .mobile-menu.open{ opacity:1; pointer-events:auto; }
+  .mobile-menu a{ display:block; font-family:var(--serif); font-size:28px; font-weight:500; padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink); text-decoration:none; }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  @media (max-width:880px){ .burger{ display:flex !important; } }
+  body.menu-open{ overflow:hidden; }
 </style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Сколько стоит керамика ручной работы и почему: разбор ценообразования", "description": "Из чего складывается цена авторской керамики: материалы, время мастера, печь, брак, аренда мастерской. Сравнение с массовым производством и магазинной посудой.", "author": {"@type": "Person", "name": "Женя Зайцева", "url": "https://ceramick.ru/#author"}, "publisher": {"@type": "Organization", "name": "Женя Зайцева", "url": "https://ceramick.ru/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://ceramick.ru/blog-skolko-stoit-keramika.html"}, "inLanguage": "ru-RU", "datePublished": "2026-01-16"}</script>
@@ -103,7 +119,16 @@
       <a href="/#author">Об авторе</a>
       <a href="/#contacts">Контакты</a>
     </div>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="/#catalog">Каталог</a>
+    <a href="/blog.html">Журнал</a>
+    <a href="/#author">Об авторе</a>
+    <a href="/#contacts">Контакты</a>
+  </div>
 </header>
 
 <div class="container">
@@ -252,5 +277,27 @@
   <a href="/privacy.html">Политика</a>
 </footer>
 
+
+<script>
+function toggleMenu(){
+  var menu = document.getElementById('mobile-menu');
+  var burger = document.getElementById('burger');
+  var isOpen = menu.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', isOpen);
+  menu.setAttribute('aria-hidden', !isOpen);
+  document.body.classList.toggle('menu-open', isOpen);
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+function closeMenu(){
+  var menu = document.getElementById('mobile-menu');
+  if(!menu.classList.contains('open')) return;
+  menu.classList.remove('open');
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('burger').setAttribute('aria-expanded','false');
+  menu.setAttribute('aria-hidden','true');
+  document.body.classList.remove('menu-open');
+}
+</script>
 </body>
 </html>
