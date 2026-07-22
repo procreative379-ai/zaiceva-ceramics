@@ -913,13 +913,20 @@ function sendForm(e, withCart){
       form.reset();
       if (withCart) closeCart();
     } else {
-      // Formspree вернул ошибку — fallback на mailto
-      window.location.href = 'mailto:zajki@list.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      // Formspree вернул ошибку — показываем и даём fallback
+      console.warn('Formspree error:', r);
+      showToast('Не удалось отправить — открываю почту…');
+      setTimeout(() => {
+        window.location.href = 'mailto:zajki@list.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      }, 800);
     }
   })
-  .catch(() => {
-    // Нет сети или другая ошибка — fallback на mailto
-    window.location.href = 'mailto:zajki@list.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  .catch(err => {
+    console.warn('Fetch error:', err);
+    showToast('Отправляю через почту…');
+    setTimeout(() => {
+      window.location.href = 'mailto:zajki@list.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    }, 800);
   });
 
   return false;
@@ -980,7 +987,7 @@ renderFilters();
 renderProducts();
 updateCartCount();
 initCookie();
-console.log('%c[ceramick] v26 SEO (single file)', 'color:#8B6F47;font-weight:bold', PRODUCTS.length);
+console.log('%c[ceramick] v27 form-fix (single file)', 'color:#8B6F47;font-weight:bold', PRODUCTS.length);
 
 </script>
 </body>
