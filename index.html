@@ -26,16 +26,16 @@
   "@context":"https://schema.org","@type":"Store","name":"Женя Зайцева",
   "description":"Авторская керамика ручной работы Жени Зайцевой — кашпо, подсвечники, банки для хранения и декор. Москва, отправка по России.",
   "image":"https://ceramick.ru/images/teatr-1.jpg","url":"https://ceramick.ru/",
-  "telephone":"+79260335236","email":"zajki@list.ru",
+  "telephone":"+79260335236","email":"request@ceramick.ru",
   "founder":{"@type":"Person","name":"Женя Зайцева"},
   "address":{"@type":"PostalAddress","addressLocality":"Москва","addressCountry":"RU"},
-  "contactPoint":{"@type":"ContactPoint","telephone":"+79260335236","email":"zajki@list.ru","contactType":"sales","areaServed":"RU","availableLanguage":"Russian"},
+  "contactPoint":{"@type":"ContactPoint","telephone":"+79260335236","email":"request@ceramick.ru","contactType":"sales","areaServed":"RU","availableLanguage":"Russian"},
   "sameAs":["https://t.me/pugovicibroshi"]
 }
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Женя Зайцева","alternateName":"Женя Зайцева керамика",
- "jobTitle":"Художница, керамистка","telephone":"+79260335236","email":"zajki@list.ru",
+ "jobTitle":"Художница, керамистка","telephone":"+79260335236","email":"request@ceramick.ru",
  "url":"https://ceramick.ru/","sameAs":["https://t.me/pugovicibroshi"],
  "address":{"@type":"PostalAddress","addressLocality":"Москва","addressCountry":"RU"}}
 </script>
@@ -262,16 +262,21 @@
   .mobile-menu-foot a{ font-family:var(--sans); font-size:15px; padding:8px 0; border:none; color:var(--ink); }
   body.menu-open{ overflow:hidden; }
 </style>
-<!-- Yandex.Metrika counter -->
+<!-- Yandex.Metrika — загружается только после согласия с cookie -->
 <script type="text/javascript">
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110238099', 'ym');
-   ym(110238099, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+function initMetrika(){
+  if(window._metrikaLoaded) return;
+  window._metrikaLoaded = true;
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=110238099','ym');
+  ym(110238099,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+}
+// Если уже дал согласие ранее — грузим сразу
+try{ if(localStorage.getItem('cookie_ok')==='1') initMetrika(); }catch(e){}
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110238099" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -347,7 +352,7 @@
     <a href="#contacts" onclick="closeMenu()">Контакты</a>
     <div class="mobile-menu-foot">
       <a href="tel:+79260335236">+7 926 033-52-36</a>
-      <a href="mailto:zajki@list.ru">zajki@list.ru</a>
+      <a href="mailto:request@ceramick.ru">request@ceramick.ru</a>
       <a href="https://t.me/pugovicibroshi" target="_blank" rel="noopener">Telegram-канал</a>
     </div>
   </div>
@@ -447,7 +452,7 @@
       <div class="contacts-grid">
         <div class="contact-info">
           <div class="contact-row"><span class="contact-label">Телефон</span> <a href="tel:+79260335236">+7 926 033-52-36</a></div>
-          <div class="contact-row"><span class="contact-label">Почта</span> <a href="mailto:zajki@list.ru">zajki@list.ru</a></div>
+          <div class="contact-row"><span class="contact-label">Почта</span> <a href="mailto:request@ceramick.ru">request@ceramick.ru</a></div>
           <div class="contact-row"><span class="contact-label">Telegram</span> <a href="https://t.me/pugovicibroshi" target="_blank" rel="noopener">@pugovicibroshi</a></div>
           <div class="contact-row"><span class="contact-label">Город</span> Москва, отправка по России</div>
           <div class="contact-row"><span class="contact-label">Часы</span> Отвечаю днём, иногда вечером</div>
@@ -495,7 +500,7 @@
         <h4>Связь</h4>
         <ul>
           <li><a href="tel:+79260335236">+7 926 033-52-36</a></li>
-          <li><a href="mailto:zajki@list.ru">zajki@list.ru</a></li>
+          <li><a href="mailto:request@ceramick.ru">request@ceramick.ru</a></li>
           <li><a href="https://t.me/pugovicibroshi" target="_blank" rel="noopener">Telegram-канал</a></li>
         </ul>
       </div>
@@ -506,6 +511,7 @@
           <li><a href="#contacts">Контакты</a></li>
           <li><a href="/blog.html">Журнал</a></li>
           <li><a href="/privacy.html">Политика</a></li>
+          <li><a href="/vozvrat.html">Правила возврата</a></li>
         </ul>
       </div>
     </div>
@@ -555,8 +561,11 @@
 <!-- COOKIE -->
 <div id="cookie-banner">
   <div class="cb-wrap">
-    <p>Сайт использует cookie и Яндекс.Метрику. Оставляя заявку, вы соглашаетесь с обработкой данных. <a href="/privacy.html">Подробнее</a></p>
-    <button class="cb-btn" onclick="acceptCookie()">Принять</button>
+    <p>Мы используем cookie и Яндекс.Метрику для анализа посещаемости. Нажимая «Принять», вы соглашаетесь с <a href="/privacy.html">политикой конфиденциальности</a> и обработкой персональных данных.</p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button class="cb-btn" onclick="acceptCookie()">Принять</button>
+      <button class="cb-btn" style="background:transparent;color:var(--muted);border:1px solid var(--line);" onclick="declineCookie()">Отклонить</button>
+    </div>
   </div>
 </div>
 
@@ -865,7 +874,7 @@ function addToCartFromModal(){
 
 // === FORM SUBMIT ===
 // === FORMSPREE ENDPOINT — вставь свой после регистрации на formspree.io ===
-const FORMSPREE = 'https://formspree.io/f/mdaqdpgo';
+const FORMSPREE = 'https://formspree.io/f/meeylvyq';
 
 function sendForm(e, withCart){
   e.preventDefault();
@@ -917,7 +926,7 @@ function sendForm(e, withCart){
       console.warn('Formspree error:', r);
       showToast('Не удалось отправить — открываю почту…');
       setTimeout(() => {
-        window.location.href = 'mailto:zajki@list.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+        window.location.href = 'mailto:request@ceramick.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
       }, 800);
     }
   })
@@ -925,7 +934,7 @@ function sendForm(e, withCart){
     console.warn('Fetch error:', err);
     showToast('Отправляю через почту…');
     setTimeout(() => {
-      window.location.href = 'mailto:zajki@list.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      window.location.href = 'mailto:request@ceramick.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     }, 800);
   });
 
@@ -935,6 +944,11 @@ function sendForm(e, withCart){
 // === COOKIE ===
 function acceptCookie(){
   try{ localStorage.setItem('cookie_ok','1'); }catch(e){}
+  document.getElementById('cookie-banner').classList.remove('show');
+  if(typeof initMetrika==='function') initMetrika();
+}
+function declineCookie(){
+  try{ localStorage.setItem('cookie_ok','0'); }catch(e){}
   document.getElementById('cookie-banner').classList.remove('show');
 }
 function initCookie(){
@@ -987,7 +1001,7 @@ renderFilters();
 renderProducts();
 updateCartCount();
 initCookie();
-console.log('%c[ceramick] v27 form-fix (single file)', 'color:#8B6F47;font-weight:bold', PRODUCTS.length);
+console.log('%c[ceramick] v29 legal (single file)', 'color:#8B6F47;font-weight:bold', PRODUCTS.length);
 
 </script>
 </body>
