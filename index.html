@@ -462,7 +462,7 @@ try{ if(localStorage.getItem('cookie_ok')==='1') initMetrika(); }catch(e){}
           <input type="text" name="contact" placeholder="Телефон, почта или @telegram" required>
           <textarea name="comment" placeholder="Что хотите обсудить (по желанию)"></textarea>
           <button type="submit" class="btn">Отправить заявку</button>
-          <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy.html">политикой конфиденциальности</a>.</p>
+          <p class="form-note">Нажимая кнопку, вы принимаете <a href="/oferta.html">публичную оферту</a> и соглашаетесь с <a href="/privacy.html">политикой конфиденциальности</a>.</p>
         </form>
       </div>
     </div>
@@ -512,6 +512,7 @@ try{ if(localStorage.getItem('cookie_ok')==='1') initMetrika(); }catch(e){}
           <li><a href="/blog.html">Журнал</a></li>
           <li><a href="/privacy.html">Политика</a></li>
           <li><a href="/vozvrat.html">Правила возврата</a></li>
+          <li><a href="/oferta.html">Публичная оферта</a></li>
         </ul>
       </div>
     </div>
@@ -1001,7 +1002,7 @@ renderFilters();
 renderProducts();
 updateCartCount();
 initCookie();
-console.log('%c[ceramick] v35 (single file)', 'color:#8B6F47;font-weight:bold', PRODUCTS.length);
+console.log('%c[ceramick] v36 oferta (single file)', 'color:#8B6F47;font-weight:bold', PRODUCTS.length);
 
 </script>
 </body>
