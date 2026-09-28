@@ -457,13 +457,11 @@ try{ if(localStorage.getItem('cookie_ok')==='1') initMetrika(); }catch(e){}
           <div class="contact-row"><span class="contact-label">Город</span> Москва, отправка по России</div>
           <div class="contact-row"><span class="contact-label">Часы</span> Отвечаю днём, иногда вечером</div>
         </div>
-        <form class="form" id="contact-form" onsubmit="return sendForm(event, false)">
-          <input type="text" name="name" placeholder="Как вас зовут" required>
-          <input type="text" name="contact" placeholder="Телефон, почта или @telegram" required>
-          <textarea name="comment" placeholder="Что хотите обсудить (по желанию)"></textarea>
-          <button type="submit" class="btn">Отправить заявку</button>
-          <p class="form-note">Нажимая кнопку, вы принимаете <a href="/oferta.html">публичную оферту</a> и соглашаетесь с <a href="/privacy.html">политикой конфиденциальности</a>.</p>
-        </form>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <p style="color:var(--muted);font-size:15px;line-height:1.6;">Расскажу о доступных изделиях, помогу с выбором, обсудим заказ или индивидуальную работу.</p>
+          <a href="https://forms.yandex.ru/u/6ab96074eb6146ee724d002e/" target="_blank" rel="noopener" class="btn" style="text-align:center;display:block;">Написать заявку →</a>
+          <p class="form-note">Заявка откроется в новой вкладке. Нажимая кнопку, вы принимаете <a href="/oferta.html">публичную оферту</a> и соглашаетесь с <a href="/privacy.html">политикой конфиденциальности</a>.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -533,13 +531,8 @@ try{ if(localStorage.getItem('cookie_ok')==='1') initMetrika(); }catch(e){}
   <div class="drawer-body" id="drawer-body"></div>
   <div class="drawer-foot" id="drawer-foot" style="display:none;">
     <div class="cart-total">К оплате <strong id="cart-total">0 ₽</strong></div>
-    <form class="form" onsubmit="return sendForm(event, true)">
-      <input type="text" name="name" placeholder="Как вас зовут" required>
-      <input type="text" name="contact" placeholder="Телефон, почта или @telegram" required>
-      <textarea name="comment" placeholder="Комментарий к заказу" style="min-height:60px;"></textarea>
-      <button type="submit" class="btn">Оформить заказ</button>
-      <p class="form-note">Оплата по согласованию. Нажимая кнопку, соглашаетесь с <a href="/privacy.html">политикой</a>.</p>
-    </form>
+    <a href="https://forms.yandex.ru/u/6ab96074eb6146ee724d002e/" target="_blank" rel="noopener" class="btn" style="display:block;text-align:center;margin-bottom:8px;">Оформить заказ →</a>
+    <p class="form-note" style="text-align:center;">Оплата по согласованию. Нажимая кнопку, соглашаетесь с <a href="/privacy.html">политикой</a>.</p>
   </div>
 </aside>
 
@@ -874,73 +867,7 @@ function addToCartFromModal(){
 }
 
 // === FORM SUBMIT ===
-// === FORMSPREE ENDPOINT — вставь свой после регистрации на formspree.io ===
-const FORMSPREE = 'https://formspree.io/f/meeylvyq';
-
-function sendForm(e, withCart){
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const name = (data.get('name')||'').trim();
-  const contact = (data.get('contact')||'').trim();
-  const comment = (data.get('comment')||'').trim();
-  if (!name || !contact) return false;
-
-  const lines = ['Имя: '+name, 'Контакт: '+contact];
-  if (comment) lines.push('Комментарий: '+comment);
-  if (withCart){
-    const ids = Object.keys(cart);
-    if (ids.length){
-      lines.push('','Заказ:');
-      let total = 0;
-      ids.forEach(id => {
-        const p = PRODUCTS.find(x=>x.id===id);
-        if (!p) return;
-        const sum = p.price*cart[id];
-        total += sum;
-        lines.push('— '+p.name+' ×'+cart[id]+' ('+fmt(sum)+')');
-      });
-      lines.push('Итого: '+fmt(total));
-    }
-  }
-  const subject = withCart ? 'Заказ с сайта ceramick.ru' : 'Заявка с сайта ceramick.ru';
-  const body = lines.join('\n');
-
-  // Отправка через Formspree (приходит письмо на почту)
-  const payload = { _subject: subject, name, contact, message: body };
-
-  showToast('Отправляю заявку…');
-
-  fetch(FORMSPREE, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-  .then(r => r.json())
-  .then(r => {
-    if (r.ok || r.next) {
-      showToast('✓ Заявка отправлена! Ответим скоро.');
-      form.reset();
-      if (withCart) closeCart();
-    } else {
-      // Formspree вернул ошибку — показываем и даём fallback
-      console.warn('Formspree error:', r);
-      showToast('Не удалось отправить — открываю почту…');
-      setTimeout(() => {
-        window.location.href = 'mailto:request@ceramick.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-      }, 800);
-    }
-  })
-  .catch(err => {
-    console.warn('Fetch error:', err);
-    showToast('Отправляю через почту…');
-    setTimeout(() => {
-      window.location.href = 'mailto:request@ceramick.ru?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    }, 800);
-  });
-
-  return false;
-}
+// Форма заявки — Яндекс Форма (внешняя ссылка)
 
 // === COOKIE ===
 function acceptCookie(){
